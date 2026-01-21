@@ -1,0 +1,208 @@
+{
+  "info": {
+    "_postman_id": "4ab437d7-9d08-4a30-9858-c7d832a36179",
+    "name": "API Test library",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51699427"
+  },
+  "item": [
+    {
+      "name": "GetBooks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://library-api.postmanlabs.com/books",
+          "protocol": "https",
+          "host": [
+            "library-api",
+            "postmanlabs",
+            "com"
+          ],
+          "path": [
+            "books"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "NEW REQUEST",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/books",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "books"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "google query",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://www.google.com/?q=postman",
+          "protocol": "https",
+          "host": [
+            "www",
+            "google",
+            "com"
+          ],
+          "path": [
+            ""
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "postman"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "filter books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BaseURL}}/books?genre=self-help",
+          "host": [
+            "{{BaseURL}}"
+          ],
+          "path": [
+            "books"
+          ],
+          "query": [
+            {
+              "key": "genre",
+              "value": "self-help",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "path parameter",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.github.com/users/rakesh874u",
+          "protocol": "https",
+          "host": [
+            "api",
+            "github",
+            "com"
+          ],
+          "path": [
+            "users",
+            "rakesh874u"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Books By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://library-api.postmanlabs.com/books?id=2beca465-2a41-4f1e-b414-122fbb5c4ab6",
+          "protocol": "https",
+          "host": [
+            "library-api",
+            "postmanlabs",
+            "com"
+          ],
+          "path": [
+            "books"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "2beca465-2a41-4f1e-b414-122fbb5c4ab6"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "post your own book",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const id =pm.response.json().id;\r",
+              "pm.collectionVariables.set(\"bookId\",id);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "in",
+              "value": "header",
+              "type": "string"
+            },
+            {
+              "key": "value",
+              "value": "[{\"key\":\"api-key\",\"value\":\"postmanrulz\",\"description\":\"\",\"type\":\"text\",\"uuid\":\"11685c45-6ac7-422e-b646-0f3a5da62eb5\",\"enabled\":true}]",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "postmanrulz",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\": \"13976a53-b8ca-400e-b54a-44faebad18e3\",\r\n        \"title\": \"Learn postman\",\r\n        \"author\": \"Robert\",\r\n        \"genre\": \"finance\",\r\n        \"yearPublished\": 202545,\r\n        \"checkedOut\": false,\r\n        \"isPermanentCollection\": false,\r\n        \"createdAt\": \"2026-01-21T12:51:59.486Z\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://library-api.postmanlabs.com/books",
+          "protocol": "https",
+          "host": [
+            "library-api",
+            "postmanlabs",
+            "com"
+          ],
+          "path": [
+            "books"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
